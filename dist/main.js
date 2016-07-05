@@ -1,4 +1,5 @@
 var data = [];
+var $searchSubmit = $('#search-submit');
 
 var settings = {
   type: 'GET',
@@ -11,6 +12,7 @@ var settings = {
   }
 };
 
+// creates the item divs
 function parseData (item, i) {
   var $newDiv = $('<div class=item><a href="#"><img src="#" /><p class="title"></p><p class="shop-name"></p><p class="price"></p></a></div>');
   var $title = item.title;
@@ -26,3 +28,24 @@ function parseData (item, i) {
 }
 
 $.ajax(settings);
+
+// when user hits Search button
+$searchSubmit.click(search);
+
+// if user hits enter while typing in searchbar
+$('#searchbar').keypress(function(evt) {
+  if (evt.which === 13) {
+    search();
+  }
+});
+
+// function which runs in the case of the above events
+function search () {
+  var $userSearch = $('#searchbar').val();
+  console.log('hi');
+  if ($userSearch !== '') {
+    settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&includes=Images,Shop';
+    $('#container').empty();
+    $.ajax(settings);
+  }
+}

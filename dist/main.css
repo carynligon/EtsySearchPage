@@ -46,6 +46,8 @@ header {
   border: 0;
   font-size: 0.9rem;
   color: #fff; }
+  #search-submit:focus {
+    outline: 0; }
 
 .item {
   height: auto;
