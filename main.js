@@ -1,10 +1,14 @@
 var data = [];
 var $searchSubmit = $('#search-submit');
+var $userSearch = 'dogbowtie';
+var $minPrice = 0;
+var $maxPrice = 99999999999;
+var $color;
 
 var settings = {
   type: 'GET',
   dataType: 'jsonp',
-  url: 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=dogbowtie&includes=Images,Shop',
+  url: 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=15' + '&color_triplet=' + $color + '&includes=Images,Shop',
   success: function(response) {
     data = response.results;
     console.log(data);
@@ -41,11 +45,30 @@ $('#searchbar').keypress(function(evt) {
 
 // function which runs in the case of the above events
 function search () {
-  var $userSearch = $('#searchbar').val();
+  $userSearch = $('#searchbar').val();
   console.log('hi');
   if ($userSearch !== '') {
-    settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&includes=Images,Shop';
+    settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=15' + '&color_triplet=' + $color + '&includes=Images,Shop';
     $('#container').empty();
     $.ajax(settings);
   }
 }
+
+$('#price-submit').click(priceRange);
+
+
+function priceRange () {
+  $minPrice = $('#low').val();
+  $maxPrice = $('#high').val();
+    settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=15' + '&color_triplet=' + $color + '&includes=Images,Shop';
+    $('#container').empty();
+    $.ajax(settings);
+}
+
+// Not working
+var colorLi = document.querySelectorAll('.color-filter li');
+colorLi.forEach(function(li, i) {
+  li.addEventListener('click', function(evt) {
+    console.log(evt);
+  });
+});
