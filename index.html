@@ -13,10 +13,69 @@
       <input type="button" id="search-submit" value="Search" />
     </header>
     <aside>
+
+      <p id="item_type">Item Type</p>
+      <ul class="item-type">
+        <li>
+          <input type="radio" id="all-items" />
+          <label>All Items</label>
+        </li>
+        <li>
+          <input type="radio" id="handmade" />
+          <label>Handmade</label>
+        </li>
+        <li>
+          <input type="radio" id="vintage" />
+          <label>Vintage</label>
+        </li>
+      </ul>
+
+      <p id="price-filter">Price ($)</p>
+      <input type="text" placeholder="Low"/>
+      <span>to</span>
+      <input type="text" placeholder="High"/>
+      <input type="submit" />
+
+      <p id ="order_options">Ordering Options</p>
+      <ul class="ordering-options">
+        <li>
+          <input type="checkbox" id="favorites" />
+          <label>In your favorites</label>
+        </li>
+        <li>
+          <input type="checkbox" id="giftcards" />
+          <label>Accepts Etsy gift cards</label>
+        </li>
+        <li>
+          <input type="checkbox" id="customizable" />
+          <label>Customizable</label>
+        </li>
+      </ul>
+
+      <p id = "shop_location">Shop Location</p>
+      <ul class="shop-location">
+        <li>
+          <input type="radio" />
+          <label>Anywhere</label>
+        </li>
+        <li>
+          <input type="radio" />
+          <label>United States</label>
+        </li>
+        <li>
+          <a href="#">Choose a custom location</a>
+        </li>
+      </ul>
+
+      <p id="ship_to">Ship to</p>
+      
+
+
+
+
+
     </aside>
     <div id="container">
-
-
     </div>
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <script src="main.js" type="text/javascript"></script>
