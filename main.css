@@ -1,3 +1,86 @@
+body {
+  background: #f5f5f1; }
 
+#container {
+  width: 78%;
+  margin: 48px 0 0 2%;
+  float: left; }
+
+aside {
+  width: 17%;
+  height: 50rem;
+  float: left;
+  border: 1px solid #b9b9b9;
+  background: #fff;
+  margin: 48px 0 0 2%;
+  border-radius: 2px;
+  box-shadow: 5px; }
+
+header {
+  height: 7rem;
+  padding-left: 20px;
+  background: #fff;
+  margin: 0;
+  border-bottom: 1px solid #b9b9b9; }
+  header #logo {
+    margin: 25px 1% 0 0; }
+
+#searchbar {
+  vertical-align: top;
+  width: 25%;
+  margin-top: 28px;
+  border: 1px solid #34a8c4;
+  border-radius: 2px;
+  font-size: 0.9rem;
+  padding: 7px; }
+  #searchbar:focus {
+    outline: 0; }
+
+#search-submit {
+  background: #34a8c4;
+  padding: 8px 12px;
+  border-radius: 2px;
+  position: relative;
+  bottom: 12px;
+  right: 7px;
+  border: 0;
+  font-size: 0.9rem;
+  color: #fff; }
+
+.item {
+  height: auto;
+  width: 23%;
+  border: 1px solid #b9b9b9;
+  float: left;
+  margin: 1rem 0.5rem;
+  padding-bottom: 0.5rem;
+  background: #fff;
+  border-radius: 2px; }
+  .item img {
+    width: 100%;
+    height: auto;
+    padding-bottom: 0.5rem; }
+
+p {
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 0.8rem;
+  font-family: sans-serif;
+  padding: 0 5px; }
+
+a {
+  text-decoration: none;
+  color: #000;
+  padding: 0; }
+
+.shop-name {
+  float: left;
+  color: #9a9a9a; }
+
+.price {
+  float: right;
+  color: #78c042; }
 
 /*# sourceMappingURL=main.css.map */
