@@ -1,13 +1,14 @@
 body {
-  background: #f5f5f1; }
+  background: #f5f5f1;
+  font-size: 0.9rem; }
 
 #container {
-  width: 78%;
+  width: 80%;
   margin: 48px 0 0 2%;
   float: left; }
 
 aside {
-  width: 17%;
+  width: 15%;
   height: 50rem;
   float: left;
   border: 1px solid #b9b9b9;
@@ -15,6 +16,14 @@ aside {
   margin: 48px 0 0 2%;
   border-radius: 2px;
   box-shadow: 5px; }
+
+ul {
+  padding: 10px;
+  line-height: 1.25rem;
+  list-style-type: none; }
+
+.item-type li {
+  color: #34a8c4; }
 
 header {
   height: 7rem;
@@ -70,7 +79,8 @@ p {
   overflow: hidden;
   font-size: 0.8rem;
   font-family: sans-serif;
-  padding: 0 5px; }
+  padding: 0 5px;
+  line-height: 1.2rem; }
 
 a {
   text-decoration: none;

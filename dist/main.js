@@ -22,7 +22,7 @@ function parseData (item, i) {
   $('#container').append($newDiv);
   $newDiv.children('a').children('.title').text($title);
   $newDiv.children('a').children('.shop-name').text($shopName);
-  $newDiv.children('a').children('.price').text($price);
+  $newDiv.children('a').children('.price').text('$' + $price);
   $newDiv.children('a').children('img').attr('src', $imgSrc);
   $newDiv.children('a').attr('href', item.url);
 }
