@@ -4,11 +4,12 @@ var $userSearch = 'dogbowtie';
 var $minPrice = 0;
 var $maxPrice = 99999999999;
 var $color;
+var $category;
 
 var settings = {
   type: 'GET',
   dataType: 'jsonp',
-  url: 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=15' + '&color_triplet=' + $color + '&includes=Images,Shop',
+  url: 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=2' + '&color_triplet=' + $color + '&category=' + $category +  '&includes=Images,Shop',
   success: function(response) {
     data = response.results;
     console.log(data);
@@ -48,7 +49,7 @@ function search () {
   $userSearch = $('#searchbar').val();
   console.log('hi');
   if ($userSearch !== '') {
-    settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=15' + '&color_triplet=' + $color + '&includes=Images,Shop';
+    settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=2' + '&color_triplet=' + $color + '&category=' + $category +  '&includes=Images,Shop';
     $('#container').empty();
     $.ajax(settings);
   }
@@ -60,15 +61,41 @@ $('#price-submit').click(priceRange);
 function priceRange () {
   $minPrice = $('#low').val();
   $maxPrice = $('#high').val();
-    settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=15' + '&color_triplet=' + $color + '&includes=Images,Shop';
+    settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=2' + '&color_triplet=' + $color + '&category=' + $category +  '&includes=Images,Shop';
     $('#container').empty();
     $.ajax(settings);
 }
 
 // Not working
 var colorLi = document.querySelectorAll('.color-filter li');
-colorLi.forEach(function(li, i) {
-  li.addEventListener('click', function(evt) {
-    console.log(evt);
+colorLi.forEach(function(item, i) {
+  item.addEventListener('click', function(evt) {
+    if (evt.target === document.querySelector('#red')) {
+      $color = 'FF0000';
+    }
+    else if (evt.target === document.querySelector('#orange')) {
+      $color = 'FFA500';
+    }
+    else if (evt.target === document.querySelector('#yellow')) {
+      $color = 'FFFF00';
+    }
+    else if (evt.target === document.querySelector('#green')) {
+      $color = '008000';
+    }
+    else if (evt.target === document.querySelector('#blue')) {
+      $color = '0000FF';
+    }
+    else if (evt.target === document.querySelector('#purple')) {
+      $color = '800080';
+    }
+    else if (evt.target === document.querySelector('#black')) {
+      $color = '000000';
+    }
+    else if (evt.target === document.querySelector('#white')) {
+      $color = 'FFFFFF';
+    }
+    $('#container').empty();
+    settings.url ='https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=2' + '&color_triplet=' + $color + '&category=' + $category +  '&includes=Images,Shop';
+    $.ajax(settings);
   });
 });
