@@ -99,3 +99,12 @@ colorLi.forEach(function(item, i) {
     $.ajax(settings);
   });
 });
+
+  $('#giftcards').change(function () {
+    if ($(this).is(':checked')) {
+      $giftCards = true;
+      settings.url = 'https://api.etsy.com/v2/listings/active.js?api_key=qkep34xjdfgad3ud0d1r0xlo&keywords=' + $userSearch + '&min_price=' + $minPrice + '&max_price=' + $maxPrice + '&color_wiggle=2' + '&color_triplet=' + $color + '&category=' + $category +  '&includes=Images,Shop';
+      $('#container').empty();
+      $.ajax(settings);
+    }
+  });
